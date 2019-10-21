@@ -1,6 +1,8 @@
-//Placeholder file
+//Placeholder
 
-#include "stuff.h"
+#include "misc.h"
+
+using std::vector;
 
 double getMemoryValue(vector<double>& memory, int index)
 {

@@ -1,8 +1,6 @@
-//Placeholder file
+//Placeholder
 
 #include <vector>
-
-using std::vector;
 
 //This grabs a double previously generated from
 //calculations that will be stored in the memory
@@ -13,4 +11,4 @@ using std::vector;
 //previous calculations.
 //@PARAM int index: index of vector to grab double
 //@RETURN double: value of calculation memory grabbed 
-double getMemoryValue(vector<double>& memory, int index);
+double getMemoryValue(std::vector<double>& memory, int index);

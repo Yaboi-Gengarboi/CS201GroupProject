@@ -5,6 +5,9 @@
 //Finished on
 //Header file for functions relating to math
 
+#ifndef MATH_FUNCTIONS_HPP
+#define MATH_FUNCTIONS_HPP
+
 #include <cmath>
 
 const double PI = 3.14159265358979323846;
@@ -58,3 +61,5 @@ int getFactorial(int num);
 
 //
 double getFactorial(double num);
+
+#endif

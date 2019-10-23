@@ -125,11 +125,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mathFunctions.cpp" />
-    <ClCompile Include="misc.cpp" />
+    <ClCompile Include="memory.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mathFunctions.h" />
-    <ClInclude Include="misc.h" />
+    <ClInclude Include="mathFunctions.hpp" />
+    <ClInclude Include="memory.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

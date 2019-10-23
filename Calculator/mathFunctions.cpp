@@ -5,7 +5,7 @@
 //Finished on
 //Source file for functions relating to math
 
-#include "mathFunctions.h"
+#include "mathFunctions.hpp"
 
 using std::abs;
 using std::log;

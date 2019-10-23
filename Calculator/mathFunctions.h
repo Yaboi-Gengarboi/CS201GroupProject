@@ -23,7 +23,15 @@ bool compareDouble(double val, double comp, double diff);
 //
 double getLog(double base, double val);
 
-//
+//Takes a value and returns the sin of it while
+//accounting for the difference between degrees
+//and radians. If the calculator is in radian
+//mode, isRad will be true. Also gives exactly
+//1 or -1 if the number is close enough
+//(sin(PI / 2) would normally return 0.99999...
+//@PARAM double val: Angle to take sin of
+//@PARAM bool isRad: Radian mode or not
+//@RETURN sin of val
 double getSin(double val, bool isRad);
 
 //

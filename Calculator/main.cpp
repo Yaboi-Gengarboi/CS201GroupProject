@@ -10,5 +10,6 @@
 
 int main()
 {
+	std::cout << std::cos(PI / 2) << std::endl;
 	return 0;
 }

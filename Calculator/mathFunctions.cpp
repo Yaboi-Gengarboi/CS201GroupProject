@@ -44,3 +44,18 @@ double getSin(double val, bool isRad)
 
 	return sinOfVal;
 }
+
+double getCos(double val, bool isRad)
+{
+	double cosOfVal = 0.0;
+
+	if (isRad)
+		cosOfVal = cos(val);
+	else
+		cosOfVal = cos(val * PI / 180);
+
+	if (compareDouble(cosOfVal, 0, 0.0001))
+		cosOfVal = 0.0;
+
+	return cosOfVal;
+}

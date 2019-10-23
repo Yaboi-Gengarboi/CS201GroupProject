@@ -10,6 +10,13 @@
 using std::abs;
 using std::log;
 using std::sin;
+using std::cos;
+using std::tan;
+using std::pow;
+using std::asin;
+using std::acos;
+using std::atan2;
+using std::tgamma;
 
 bool compareDouble(double val, double comp, double diff)
 {

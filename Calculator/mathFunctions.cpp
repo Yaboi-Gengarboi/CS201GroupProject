@@ -32,26 +32,17 @@ double getLog(double base, double val)
 
 double getSin(double val, bool isRad)
 {
+	double sinOfVal = 0.0;
+
 	if (isRad)
-	{
-		if (val > 2 * PI)
-			val -= val - 2 * PI;
-		else if (val < 0)
-			val += 0 - val;
-
-		if (compareDouble(val, PI, 0.0000001) ||
-			compareDouble(val, 2 * PI, 0.0000001))
-			return 0;
-		else if (compareDouble(val, PI / 2, 0.0000001))
-			return 1;
-		else if (compareDouble(val, 3 * PI / 2, 0.0000001))
-			return -1;
-		else
-			return sin(val);
-	}
+		sinOfVal = sin(val);
 	else
-	{
+		sinOfVal = sin(val * PI / 180);
 
-	}
-	return 0.0;
+	if (compareDouble(val, 1, 0.000001))
+		sinOfVal = 1.0;
+	else if (compareDouble(val, -1, 0.000001))
+		sinOfVal = -1.0;
+
+	return sinOfVal;
 }

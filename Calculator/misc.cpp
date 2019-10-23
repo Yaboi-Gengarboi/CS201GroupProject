@@ -19,4 +19,5 @@ double getMemoryValue(vector<double>& memory, int index)
 		//We will erase the oldest entry (the value at
 		//memory[0] and add a new value at memory[49])
 	}
+	return 0.0;
 }

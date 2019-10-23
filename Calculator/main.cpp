@@ -5,6 +5,9 @@
 //Finished on
 //Main file for calculator project.
 
+#include "mathFunctions.h"
+#include <iostream>
+
 int main()
 {
 	return 0;

@@ -39,10 +39,8 @@ double getSin(double val, bool isRad)
 	else
 		sinOfVal = sin(val * PI / 180);
 
-	if (compareDouble(val, 1, 0.000001))
-		sinOfVal = 1.0;
-	else if (compareDouble(val, -1, 0.000001))
-		sinOfVal = -1.0;
+	if (compareDouble(sinOfVal, 0, 0.0001))
+		sinOfVal = 0.0;
 
 	return sinOfVal;
 }

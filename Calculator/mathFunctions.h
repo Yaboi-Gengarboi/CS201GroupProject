@@ -27,14 +27,24 @@ double getLog(double base, double val);
 //accounting for the difference between degrees
 //and radians. If the calculator is in radian
 //mode, isRad will be true. Also gives exactly
-//1 or -1 if the number is close enough
-//(sin(PI / 2) would normally return 0.99999...
+//0 if the number is close enough
+//(sin(PI) would normally return an extremely
+//small number when it should return 0)
 //@PARAM double val: Angle to take sin of
 //@PARAM bool isRad: Radian mode or not
 //@RETURN sin of val
 double getSin(double val, bool isRad);
 
-//
+//Takes a value and returns the cos of it while
+//accounting for the difference between degrees
+//and radians. If the calculator is in radian
+//mode, isRad will be true. Also gives exactly
+//0 if the number is close enough
+//(cos(PI / 2) would normally return an extremely
+//small number when it should return 0)
+//@PARAM double val: Angle to take cos of
+//@PARAM bool isRad: Radian mode or not
+//@RETURN cos of val
 double getCos(double val, bool isRad);
 
 //

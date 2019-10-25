@@ -24,12 +24,18 @@
     <ClCompile Include="memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="inputProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mathFunctions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="memory.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inputProcess.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

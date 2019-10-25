@@ -2,7 +2,7 @@
 //Justyn P. Durnford
 //Izac Lorimer
 //Created on 10/21/2019
-//Finished on
+//Last Updated on 10/25/2019
 //Header file for functions relating to math
 
 #ifndef MATH_FUNCTIONS_HPP

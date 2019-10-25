@@ -2,11 +2,11 @@
 //Justyn P. Durnford
 //Izac Lorimer
 //Created on 10/23/2019
-//Finished on
+//Last Updated on 10/25/2019
 //Header file for calculation memory vector
 
 #ifndef MEMORY_HPP
-#define MEMOEY_HPP
+#define MEMORY_HPP
 
 #include <vector>
 
@@ -19,5 +19,7 @@
 //@PARAM int index: index of vector to grab double
 //@RETURN value of calculation memory grabbed 
 double getMemoryValue(const std::vector<double>& memory, int index);
+
+void addMemoryValue(std::vector<double>& memory, double entry);
 
 #endif

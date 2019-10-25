@@ -2,7 +2,7 @@
 //Justyn P. Durnford
 //Izac Lorimer
 //Created on 10/23/2019
-//Finished on
+//Last Updated on 10/25/2019
 //Source file for calculation memory vector
 
 #include "memory.hpp"
@@ -37,7 +37,7 @@ void addMemoryValue(vector<double>& memory, double entry)
 	{
 		//We will erase the oldest entry (the value at
 		//memory[0] and add a new value at memory[48])
-		memory.erase[0];
+		memory.erase(memory.begin());
 		memory.push_back(entry);
 	}
 }

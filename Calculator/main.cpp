@@ -11,13 +11,17 @@
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Box.H>
+#include <FL/Fl_Button.H>
+#include <FL/Fl_Output.H>
 
 int main (int argc, char** argv)
 {
-	Fl_Window* window = new Fl_Window(340, 180);
-	Fl_Box* box = new Fl_Box(20, 40, 300, 100, "Hello, World!");
-	box->box(FL_UP_BOX);
-	box->labelfont(FL_BOLD + FL_ITALIC);
+	Fl_Window* window = new Fl_Window(500, 600); //Length, Height
+	Fl_Box* box = new Fl_Box(20, 20, 460, 100, "Hello, World!"); //X, Y, Length, Height
+	Fl_Button* button = new Fl_Button(30, 30, 50, 50); //X, Y, Length, Height
+	Fl_Output* output = new Fl_Output(30, 150, 100, 50); //X, Y, Length, Height
+	box->box(FL_BORDER_BOX);
+	box->labelfont(FL_BOLD);
 	box->labelsize(36);
 	box->labeltype(FL_SHADOW_LABEL);
 	window->end();

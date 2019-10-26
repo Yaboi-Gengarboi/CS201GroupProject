@@ -27,7 +27,16 @@ bool compareDouble(double val, double comp, double diff)
 
 double getLog(double base, double val)
 {
-	return log(val) / log(base);
+	double res = 0.0;
+
+	if (val < 0)
+	{
+
+	}
+	else 
+		res = log(val) / log(base);
+
+	return res;
 }
 
 double getSin(double val, bool isRad)
@@ -39,7 +48,7 @@ double getSin(double val, bool isRad)
 	else
 		sinOfVal = sin(val * PI / 180);
 
-	if (compareDouble(sinOfVal, 0, 0.0001))
+	if (compareDouble(sinOfVal, 0, 0.000001))
 		sinOfVal = 0.0;
 
 	return sinOfVal;
@@ -54,8 +63,55 @@ double getCos(double val, bool isRad)
 	else
 		cosOfVal = cos(val * PI / 180);
 
-	if (compareDouble(cosOfVal, 0, 0.0001))
+	if (compareDouble(cosOfVal, 0, 0.000001))
 		cosOfVal = 0.0;
 
 	return cosOfVal;
+}
+
+double getTan(double val, bool isRad)
+{
+	double tanOfVal = 0.0;
+
+	if (isRad)
+		tanOfVal = tan(val);
+	else
+		tanOfVal = tan(val * PI / 180);
+
+	if (compareDouble(tanOfVal, 0, 0.000001))
+		tanOfVal = 0.0;
+	else if (tanOfVal >= 5.72958e+06) //tan(89.99999)
+	{
+
+	}
+	else if (tanOfVal <= -5.72958e+06) //tan(-89.99999)
+	{
+
+	}
+
+	return tanOfVal;
+}
+
+double getPow(double base, double exp)
+{
+	double res = 0.0;
+
+	if (base < 0 && abs(exp < 1))
+	{
+		//Imaginary numbers
+	}
+	else
+		res = pow(base, exp);
+
+	return res;
+}
+
+unsigned long getFactorial(unsigned long num)
+{
+	unsigned long res = 1;
+
+	for (unsigned long i = 2; i <= num; i++)
+		res *= i;
+
+	return res;
 }

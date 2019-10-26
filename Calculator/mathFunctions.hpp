@@ -57,7 +57,7 @@ double getTan(double val, bool isRad);
 double getPow(double base, double exp);
 
 //
-int getFactorial(int num);
+unsigned long getFactorial(unsigned long num);
 
 //
 double getFactorial(double num);

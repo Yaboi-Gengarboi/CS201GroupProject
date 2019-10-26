@@ -14,7 +14,8 @@
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Output.H>
 
-int main (int argc, char** argv)
+/*
+int main(int argc, char** argv)
 {
 	Fl_Window* window = new Fl_Window(500, 600); //Length, Height
 	Fl_Box* box = new Fl_Box(20, 20, 460, 100, "Hello, World!"); //X, Y, Length, Height
@@ -26,5 +27,12 @@ int main (int argc, char** argv)
 	box->labeltype(FL_SHADOW_LABEL);
 	window->end();
 	window->show(argc, argv);
+
 	return Fl::run();
+}
+*/
+
+int main()
+{
+	return 0;
 }

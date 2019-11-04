@@ -35,8 +35,9 @@ int main()
 	Fl_Button* button7 = new Fl_Button(340, 160, 40, 40, "7");
 	Fl_Button* button8 = new Fl_Button(380, 160, 40, 40, "8");
 	Fl_Button* button9 = new Fl_Button(420, 160, 40, 40, "9");
-
-	Fl_Button* button0 = new Fl_Button(40, 80, 40, 40, "0");
+	Fl_Button* buttonE = new Fl_Button(340, 200, 40, 40, "e");
+	Fl_Button* button0 = new Fl_Button(380, 200, 40, 40, "0");
+	Fl_Button* buttonPI = new Fl_Button(420, 200, 40, 40, "pi");
 
 	output->value("Hey");
 	mainWindow->end();

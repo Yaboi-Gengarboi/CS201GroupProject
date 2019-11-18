@@ -10,7 +10,10 @@
 #include <FL/Fl.H>
 #include <FL/Fl_Button.H>
 
-class CalcButton : public Fl_Button {
+//Constructor for CalcButton class
+//
+class CalcButton : public Fl_Button
+{
   public:
     CalcButton (int X, int Y, int W, int H, const char *L = 0)
     :Fl_Button (X, Y, W, H, L) {}

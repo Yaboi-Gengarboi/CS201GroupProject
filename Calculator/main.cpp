@@ -7,19 +7,21 @@
 
 #include "mathFunctions.hpp"
 #include <vector>
+using std::vector;
+
 #include <string>
+using std::string;
+using std::to_string;
+
 #include <iostream>
+using std::cout;
+using std::endl;
 
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Output.H>
 
 #include "customWidgets.hpp"
-
-using std::vector;
-using std::string;
-using std::cout;
-using std::endl;
 
 struct View {
 	CalcButton* button1 = nullptr;
@@ -55,19 +57,22 @@ Model model;
 void callback (Fl_Widget* w) {
 	model.currentInput = model.currentInput * 10 + w->label()[0] - '0';
 	model.lastInput = w->label()[0] - '0';
-	string out = lexical_cast<string>(model.currentInput);
+	string out = to_string(model.currentInput);
 	view.output->value(out.c_str());
 }
 
+//
 void delCallback (Fl_Widget* w) {
 	model.currentInput = (model.currentInput - model.lastInput) / 10;
-	string out = lexical_cast<string>(model.currentInput);
+	string out = to_string(model.currentInput);
 	view.output->value(out.c_str());
 }
 
-void enterCallback (Fl_Widget* w) {
+//
+void enterCallback (Fl_Widget* w)
+{
 	model.currentInput = model.currentInput * 10 + w->label()[0] - '0';
-	string out = lexical_cast<string>(model.currentInput);
+	string out = to_string(model.currentInput);
 	view.output->value(out.c_str());
 }
 
@@ -124,10 +129,3 @@ int main()
 	mainWindow->show();
 	return Fl::run();
 }
-
-/*
-int main()
-{
-	return 0;
-}
-*/

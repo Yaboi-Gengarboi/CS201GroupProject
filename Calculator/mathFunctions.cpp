@@ -18,6 +18,7 @@ using std::acos;
 using std::atan2;
 using std::tgamma;
 
+//See mathFunctions.hpp
 bool compareDouble(double val, double comp, double diff)
 {
 	if (abs(val - comp) <= diff)
@@ -25,6 +26,7 @@ bool compareDouble(double val, double comp, double diff)
 	return false;
 }
 
+//See mathFunctions.hpp
 double getLog(double base, double val)
 {
 	double res = 0.0;
@@ -39,6 +41,7 @@ double getLog(double base, double val)
 	return res;
 }
 
+//See mathFunctions.hpp
 double getSin(double val, bool isRad)
 {
 	double sinOfVal = 0.0;
@@ -54,6 +57,7 @@ double getSin(double val, bool isRad)
 	return sinOfVal;
 }
 
+//See mathFunctions.hpp
 double getCos(double val, bool isRad)
 {
 	double cosOfVal = 0.0;
@@ -69,6 +73,7 @@ double getCos(double val, bool isRad)
 	return cosOfVal;
 }
 
+//See mathFunctions.hpp
 double getTan(double val, bool isRad)
 {
 	double tanOfVal = 0.0;
@@ -92,6 +97,7 @@ double getTan(double val, bool isRad)
 	return tanOfVal;
 }
 
+//See mathFunctions.hpp
 double getPow(double base, double exp)
 {
 	double res = 0.0;
@@ -106,6 +112,7 @@ double getPow(double base, double exp)
 	return res;
 }
 
+//See mathFunctions.hpp
 unsigned long getFactorial(unsigned long num)
 {
 	unsigned long res = 1;

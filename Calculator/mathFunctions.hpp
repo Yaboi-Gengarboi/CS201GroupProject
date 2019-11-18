@@ -1,4 +1,4 @@
-//mathFunctions.h
+//mathFunctions.hpp
 //Justyn P. Durnford
 //Izac Lorimer
 //Created on 10/21/2019

@@ -9,13 +9,13 @@
 
 int count = 0;
 
-//See customWidgets.hpp
+// See customWidgets.hpp
 int CalcButton::handle (int e)
 {
 	int ret = Fl_Button::handle(e);
 	switch (e)
 	{
-		case FL_KEYUP: //Key is released from pressed position
+		case FL_KEYUP: // Key is released from pressed position
 			if (Fl::event_key() == shortcut())
 				callback()(this, nullptr);
 		break;

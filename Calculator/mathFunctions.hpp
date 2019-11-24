@@ -26,19 +26,31 @@ const double E = 2.71828182845904523536;
 //@RETURN true/false
 bool compareDouble(double val, double comp, double diff);
 
-//Grabs an integer from the given string
+//Grabs a number from the given string
 //between p1 and p2, not including p2.
 //@PARAM const string& str: string to grab int from
 //@PARAM size_t p1: Start position
 //@PARAM size_t p2: End position
-int grabInt(const string& str, size_t p1, size_t p2);
+double grabNumber(const string& str, size_t p1, size_t p2);
 
-//Grabs a double from the given string
-//between p1 and p2, not including p2.
-//@PARAM const string& str: string to grab int from
-//@PARAM size_t p1: Start position
-//@PARAM size_t p2: End position
-double grabDouble(const string& str, size_t p1, size_t p2);
+//Takes inputField's line and does the math,
+//if it can. There is a priority, of course 
+//(PEMDAS), so once we know what operands
+//are where, we can use grabInt and grabDouble
+//and use the operands to manipulate them.
+//There are a few rules:
+//	The string cannot be empty
+//	There cannot be two adjacent operands
+//  (not including ()s).
+//	There must be something to the left and
+//	right of an operand (not including ()s).
+//  There cannot be an operand at then start
+//	or end of the string.
+//Violation of any of these results in an
+//empty string as the return value.
+//If there are no operands, the string simply
+//matches the input string.
+string doMath(const string& str);
 
 //
 double getLog(double base, double val);

@@ -7,9 +7,7 @@
 
 #include "mathFunctions.hpp"
 
-#include <sstream>
-using std::istringstream;
-
+#include <cmath>
 using std::abs;
 using std::log;
 using std::sin;
@@ -21,6 +19,23 @@ using std::acos;
 using std::atan2;
 using std::tgamma;
 
+#include <string>
+using std::string;
+
+#include <sstream>
+using std::istringstream;
+
+#include <vector>
+using std::vector;
+
+#include <utility>
+using std::pair;
+using std::make_pair;
+
+#include <iostream>
+using std::cout;
+using std::endl;
+
 // See mathFunctions.hpp
 bool compareDouble(double val, double comp, double diff)
 {
@@ -30,22 +45,52 @@ bool compareDouble(double val, double comp, double diff)
 }
 
 // See mathFunctions.hpp
-int grabInt(const string& str, size_t p1, size_t p2)
-{
-	string str2 = str.substr(p1, p2);
-	istringstream stream(str2);
-	int ret = 0;
-	stream >> ret;
-	return ret;
-}
-
-// See mathFunctions.hpp
-double grabDouble(const string& str, size_t p1, size_t p2)
+double grabNumber(const string& str, size_t p1, size_t p2)
 {
 	string str2 = str.substr(p1, p2);
 	istringstream stream(str2);
 	double ret = 0.0;
 	stream >> ret;
+	return ret;
+}
+
+string doMath(const string& str)
+{
+	double result = 0.0;
+	string ret = str;
+	bool look = true;
+	vector<pair<char, size_t>> operators;
+	vector<string> substrs;
+	char ops[] = { '(', ')', '^', '*', '/', '+', '-' };
+	int i = 0;
+	size_t p = 0;
+
+	cout << str << endl;
+	//Locates and identifies each operand
+	while (i < 7)
+	{
+		while (look)
+		{
+			p = str.find(ops[i], p);
+
+			if (p != -1)
+			{
+				cout << ops[i] << " @ " << p << endl;
+				operators.push_back(make_pair(ops[i], p));
+				++p;
+			}
+			else
+			{
+				look = false;
+				p = 0;
+				++i;
+			}
+		}
+		look = true;
+	}
+
+	//Grab strings in between operands
+
 	return ret;
 }
 

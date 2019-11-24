@@ -45,8 +45,9 @@ struct View
 	CalcButton* exponent = nullptr;
 	CalcButton* parenthesis = nullptr;
 
-	CalcButton* enter = nullptr;
 	CalcButton* del = nullptr;
+	CalcButton* cl = nullptr;
+	CalcButton* enter = nullptr;
 
 	Fl_Output* inputField = nullptr;
 	Fl_Output* outputField = nullptr;
@@ -67,6 +68,15 @@ void callback(Fl_Widget* w)
 {
 	model.input += w->label();
 	view.inputField->value(model.input.c_str());
+}
+
+// Clears input and output fields
+void clear(Fl_Widget* w)
+{
+	model.input = "";
+	model.output = "";
+	view.inputField->value(model.input.c_str());
+	view.outputField->value(model.output.c_str());
 }
 
 //
@@ -96,6 +106,7 @@ void enterCallback(Fl_Widget* w)
 	view.outputField->value(model.output.c_str());
 }
 
+/*
 int main()
 {
 	Fl_Window* mainWindow = new Fl_Window(500, 600); // Length, Height
@@ -122,8 +133,9 @@ int main()
 	view.exponent = new CalcButton(380, 390, 50, 50, "^");
 	view.parenthesis = new CalcButton(430, 390, 50, 50, "()");
 
-	view.del = new CalcButton(330, 440, 40, 40, "Del");
-	view.enter = new CalcButton(400, 440, 70, 50, "Enter");
+	view.del = new CalcButton(330, 440, 50, 40, "Delete");
+	view.cl = new CalcButton(380, 440, 50, 40, "Clear");
+	view.enter = new CalcButton(430, 440, 50, 40, "Enter");
 
 	view.button1->callback(callback);
 	view.button2->callback(callback);
@@ -146,6 +158,7 @@ int main()
 	view.parenthesis->callback(callback);
 
 	view.del->callback(delCallback);
+	view.cl->callback(clear);
 	view.enter->callback(enterCallback);
 
 	view.button1->shortcut("1");
@@ -172,4 +185,12 @@ int main()
 	mainWindow->end();
 	mainWindow->show();
 	return Fl::run();
+}
+*/
+
+// test
+int main()
+{
+	string str = "50+6/(3-1)+2*(8+4-7)";
+	string test = doMath(str);
 }

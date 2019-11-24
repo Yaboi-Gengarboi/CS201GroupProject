@@ -38,6 +38,13 @@ struct View
 	CalcButton* button0 = nullptr;
 	CalcButton* buttonPI = nullptr;
 
+	CalcButton* plus = nullptr;
+	CalcButton* minus = nullptr;
+	CalcButton* multiply = nullptr;
+	CalcButton* divide = nullptr;
+	CalcButton* exponent = nullptr;
+	CalcButton* parenthesis = nullptr;
+
 	CalcButton* enter = nullptr;
 	CalcButton* del = nullptr;
 
@@ -71,6 +78,12 @@ void delCallback(Fl_Widget* w)
 		model.input.pop_back();
 		model.input.pop_back();
 	}
+	else if (model.input.rfind("()") == model.input.size() - 2
+		&& model.input.rfind("()") != -1)
+	{
+		model.input.pop_back();
+		model.input.pop_back();
+	}
 	else if (model.input.size() >= 1)
 		model.input.pop_back();
 	view.inputField->value(model.input.c_str());
@@ -89,20 +102,28 @@ int main()
 	view.inputField = new Fl_Output(20, 20, 460, 40); // X, Y, Length, Height
 	view.outputField = new Fl_Output(20, 60, 460, 40); // X, Y, Length, Height
 
-	view.button1 = new CalcButton(340, 120, 40, 40, "1");
-	view.button2 = new CalcButton(380, 120, 40, 40, "2");
-	view.button3 = new CalcButton(420, 120, 40, 40, "3");
-	view.button4 = new CalcButton(340, 160, 40, 40, "4");
-	view.button5 = new CalcButton(380, 160, 40, 40, "5");
-	view.button6 = new CalcButton(420, 160, 40, 40, "6");
-	view.button7 = new CalcButton(340, 200, 40, 40, "7");
-	view.button8 = new CalcButton(380, 200, 40, 40, "8");
-	view.button9 = new CalcButton(420, 200, 40, 40, "9");
-	view.buttonE = new CalcButton(340, 240, 40, 40, "e");
-	view.button0 = new CalcButton(380, 240, 40, 40, "0");
-	view.buttonPI = new CalcButton(420, 240, 40, 40, "pi");
-	view.del = new CalcButton(340, 280, 40, 40, "Del");
-	view.enter = new CalcButton(380, 280, 80, 40, "Enter");
+	view.button1 = new CalcButton(330, 120, 50, 50, "1");
+	view.button2 = new CalcButton(380, 120, 50, 50, "2");
+	view.button3 = new CalcButton(430, 120, 50, 50, "3");
+	view.button4 = new CalcButton(330, 170, 50, 50, "4");
+	view.button5 = new CalcButton(380, 170, 50, 50, "5");
+	view.button6 = new CalcButton(430, 170, 50, 50, "6");
+	view.button7 = new CalcButton(330, 220, 50, 50, "7");
+	view.button8 = new CalcButton(380, 220, 50, 50, "8");
+	view.button9 = new CalcButton(430, 220, 50, 50, "9");
+	view.buttonE = new CalcButton(330, 270, 50, 50, "e");
+	view.button0 = new CalcButton(380, 270, 50, 50, "0");
+	view.buttonPI = new CalcButton(430, 270, 50, 50, "pi");
+
+	view.plus = new CalcButton(330, 340, 50, 50, "+");
+	view.minus = new CalcButton(380, 340, 50, 50, "-");
+	view.multiply = new CalcButton(430, 340, 50, 50, "*");
+	view.divide = new CalcButton(330, 390, 50, 50, "/");
+	view.exponent = new CalcButton(380, 390, 50, 50, "^");
+	view.parenthesis = new CalcButton(430, 390, 50, 50, "()");
+
+	view.del = new CalcButton(330, 440, 40, 40, "Del");
+	view.enter = new CalcButton(400, 440, 70, 50, "Enter");
 
 	view.button1->callback(callback);
 	view.button2->callback(callback);
@@ -116,6 +137,14 @@ int main()
 	view.buttonE->callback(callback);
 	view.button0->callback(callback);
 	view.buttonPI->callback(callback);
+
+	view.plus->callback(callback);
+	view.minus->callback(callback);
+	view.multiply->callback(callback);
+	view.divide->callback(callback);
+	view.exponent->callback(callback);
+	view.parenthesis->callback(callback);
+
 	view.del->callback(delCallback);
 	view.enter->callback(enterCallback);
 
@@ -131,7 +160,14 @@ int main()
 	view.buttonE->shortcut("e");
 	view.button0->shortcut("0");
 	view.buttonPI->shortcut("p");
+
 	view.del->shortcut(65288);
+
+	//view.plus->shortcut("+");
+	//view.minus->shortcut("-");
+	//view.multiply->shortcut("*");
+	//view.divide->shortcut("/");
+
 
 	mainWindow->end();
 	mainWindow->show();

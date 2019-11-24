@@ -65,7 +65,13 @@ void callback(Fl_Widget* w)
 //
 void delCallback(Fl_Widget* w)
 {
-	if (model.input.size() >= 1)
+	if (model.input.rfind("pi") == model.input.size() - 2
+		&& model.input.rfind("pi") != -1)
+	{
+		model.input.pop_back();
+		model.input.pop_back();
+	}
+	else if (model.input.size() >= 1)
 		model.input.pop_back();
 	view.inputField->value(model.input.c_str());
 }

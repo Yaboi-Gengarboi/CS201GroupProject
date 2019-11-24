@@ -7,6 +7,9 @@
 
 #include "mathFunctions.hpp"
 
+#include <sstream>
+using std::istringstream;
+
 using std::abs;
 using std::log;
 using std::sin;
@@ -18,7 +21,7 @@ using std::acos;
 using std::atan2;
 using std::tgamma;
 
-//See mathFunctions.hpp
+// See mathFunctions.hpp
 bool compareDouble(double val, double comp, double diff)
 {
 	if (abs(val - comp) <= diff)
@@ -26,7 +29,27 @@ bool compareDouble(double val, double comp, double diff)
 	return false;
 }
 
-//See mathFunctions.hpp
+// See mathFunctions.hpp
+int grabInt(const string& str, size_t p1, size_t p2)
+{
+	string str2 = str.substr(p1, p2);
+	istringstream stream(str2);
+	int ret = 0;
+	stream >> ret;
+	return ret;
+}
+
+// See mathFunctions.hpp
+double grabDouble(const string& str, size_t p1, size_t p2)
+{
+	string str2 = str.substr(p1, p2);
+	istringstream stream(str2);
+	double ret = 0.0;
+	stream >> ret;
+	return ret;
+}
+
+// See mathFunctions.hpp
 double getLog(double base, double val)
 {
 	double res = 0.0;
@@ -41,7 +64,7 @@ double getLog(double base, double val)
 	return res;
 }
 
-//See mathFunctions.hpp
+// See mathFunctions.hpp
 double getSin(double val, bool isRad)
 {
 	double sinOfVal = 0.0;
@@ -57,7 +80,7 @@ double getSin(double val, bool isRad)
 	return sinOfVal;
 }
 
-//See mathFunctions.hpp
+// See mathFunctions.hpp
 double getCos(double val, bool isRad)
 {
 	double cosOfVal = 0.0;
@@ -73,7 +96,7 @@ double getCos(double val, bool isRad)
 	return cosOfVal;
 }
 
-//See mathFunctions.hpp
+// See mathFunctions.hpp
 double getTan(double val, bool isRad)
 {
 	double tanOfVal = 0.0;
@@ -97,7 +120,7 @@ double getTan(double val, bool isRad)
 	return tanOfVal;
 }
 
-//See mathFunctions.hpp
+// See mathFunctions.hpp
 double getPow(double base, double exp)
 {
 	double res = 0.0;
@@ -112,7 +135,7 @@ double getPow(double base, double exp)
 	return res;
 }
 
-//See mathFunctions.hpp
+// See mathFunctions.hpp
 unsigned long getFactorial(unsigned long num)
 {
 	unsigned long res = 1;

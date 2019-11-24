@@ -10,6 +10,9 @@
 
 #include <cmath>
 
+#include <string>
+using std::string;
+
 const double PI = 3.14159265358979323846;
 const double E = 2.71828182845904523536;
 
@@ -22,6 +25,20 @@ const double E = 2.71828182845904523536;
 //be within, from 0 to and including diff
 //@RETURN true/false
 bool compareDouble(double val, double comp, double diff);
+
+//Grabs an integer from the given string
+//between p1 and p2, not including p2.
+//@PARAM const string& str: string to grab int from
+//@PARAM size_t p1: Start position
+//@PARAM size_t p2: End position
+int grabInt(const string& str, size_t p1, size_t p2);
+
+//Grabs a double from the given string
+//between p1 and p2, not including p2.
+//@PARAM const string& str: string to grab int from
+//@PARAM size_t p1: Start position
+//@PARAM size_t p2: End position
+double grabDouble(const string& str, size_t p1, size_t p2);
 
 //
 double getLog(double base, double val);

@@ -2,7 +2,7 @@
 //Justyn P. Durnford
 //Izac Lorimer
 //Created on 10/21/2019
-//Last Updated on 10/25/2019
+//Last Updated on 11/25/2019
 //Header file for functions relating to math
 
 #ifndef MATH_FUNCTIONS_HPP
@@ -25,13 +25,6 @@ const double E = 2.71828182845904523536;
 //be within, from 0 to and including diff
 //@RETURN true/false
 bool compareDouble(double val, double comp, double diff);
-
-//Grabs a number from the given string
-//between p1 and p2, not including p2.
-//@PARAM const string& str: string to grab int from
-//@PARAM size_t p1: Start position
-//@PARAM size_t p2: End position
-double grabNumber(const string& str, size_t p1, size_t p2);
 
 //Takes inputField's line and does the math,
 //if it can. There is a priority, of course 

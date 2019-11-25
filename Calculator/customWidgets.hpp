@@ -2,7 +2,7 @@
 //Justyn P. Durnford
 //Izac Lorimer
 //Created on 11/09/2019
-//Last Updated on 11/09/2019
+//Last Updated on 11/25/2019
 //Source file for custom widgets. Allows for custom handling of events.
 
 #ifndef CUSTOM_WIDGETS_HPP

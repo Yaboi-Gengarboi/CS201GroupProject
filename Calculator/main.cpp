@@ -2,7 +2,7 @@
 //Justyn P. Durnford
 //Izac Lorimer
 //Created on 9/30/2019
-//Last Updated on 10/28/2019
+//Last Updated on 11/25/2019
 //Main file for calculator project.
 
 #include "mathFunctions.hpp"
@@ -102,11 +102,10 @@ void delCallback(Fl_Widget* w)
 //
 void enterCallback(Fl_Widget* w)
 {
-	model.output = model.input;
+	model.output = doMath(model.input);
 	view.outputField->value(model.output.c_str());
 }
 
-/*
 int main()
 {
 	Fl_Window* mainWindow = new Fl_Window(500, 600); // Length, Height
@@ -186,12 +185,13 @@ int main()
 	mainWindow->show();
 	return Fl::run();
 }
-*/
 
 // test
+/*
 int main()
 {
-	string str = "50+6/(3-1)+2*(8+4-7)";
+	string str = "50+6/(3-1)+3*(8+4-7)";
 	string test = doMath(str);
 	cout << str << " = " << test << endl;
 }
+*/

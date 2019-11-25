@@ -2,10 +2,11 @@
 //Justyn P. Durnford
 //Izac Lorimer
 //Created on 10/21/2019
-//Last Updated on 10/25/2019
+//Last Updated on 11/25/2019
 //Source file for functions relating to math
 
 #include "mathFunctions.hpp"
+#include "Error.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -43,16 +44,6 @@ bool compareDouble(double val, double comp, double diff)
 	if (abs(val - comp) <= diff)
 		return true;
 	return false;
-}
-
-// See mathFunctions.hpp
-double grabNumber(const string& str, size_t p1, size_t p2)
-{
-	string str2 = str.substr(p1, p2);
-	istringstream stream(str2);
-	double ret = 0.0;
-	stream >> ret;
-	return ret;
 }
 
 double evalFunction(vector<string>  parsed) {
@@ -133,6 +124,9 @@ double evalFunction(vector<string>  parsed) {
 		istringstream stream2(secondStr);
 		double second;
 		stream2 >> second;
+
+		if (second == 0.0)
+			displayError("ERROR: Divide by 0");
 
 		if (!stream || !stream2) // Make sure both are converted successfully
 			throw;

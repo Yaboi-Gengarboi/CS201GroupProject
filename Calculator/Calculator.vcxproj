@@ -137,12 +137,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="customWidgets.cpp" />
+    <ClCompile Include="Error.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mathFunctions.cpp" />
     <ClCompile Include="memory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="customWidgets.hpp" />
+    <ClInclude Include="Error.hpp" />
     <ClInclude Include="mathFunctions.hpp" />
     <ClInclude Include="memory.hpp" />
   </ItemGroup>

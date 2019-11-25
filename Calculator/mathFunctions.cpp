@@ -7,6 +7,7 @@
 
 #include "mathFunctions.hpp"
 
+#include <algorithm>
 #include <cmath>
 using std::abs;
 using std::log;
@@ -54,44 +55,172 @@ double grabNumber(const string& str, size_t p1, size_t p2)
 	return ret;
 }
 
-string doMath(const string& str)
-{
-	double result = 0.0;
-	string ret = str;
-	bool look = true;
-	vector<pair<char, size_t>> operators;
-	vector<string> substrs;
-	char ops[] = { '(', ')', '^', '*', '/', '+', '-' };
-	int i = 0;
-	size_t p = 0;
+double evalFunction(vector<string>  parsed) {
+	// Check for any values in parentheses
+	while (std::find(parsed.begin(), parsed.end(), "(") != parsed.end()) {
+		auto opening = std::find(parsed.begin(), parsed.end(), "(");
+		auto closing = std::find(opening, parsed.end(), ")");
 
-	cout << str << endl;
-	//Locates and identifies each operand
-	while (i < 7)
-	{
-		while (look)
-		{
-			p = str.find(ops[i], p);
+		// If there's not a matching closing paren, we can't process this.
+		if (closing == parsed.end())
+			throw;
 
-			if (p != -1)
-			{
-				cout << ops[i] << " @ " << p << endl;
-				operators.push_back(make_pair(ops[i], p));
-				++p;
-			}
-			else
-			{
-				look = false;
-				p = 0;
-				++i;
-			}
-		}
-		look = true;
+		// Create a vector and copy over the values inside the parentheses
+		// We then evaluate this and replace the parentheses with the result.
+		vector<string> subFunction;
+		std::copy(opening + 1, closing, std::back_inserter(subFunction));
+		*opening = std::to_string(evalFunction(subFunction));
+		parsed.erase(opening + 1, closing + 1);
 	}
 
-	//Grab strings in between operands
+	// Exponents
+	while (std::find(parsed.begin(), parsed.end(), "^") != parsed.end()) {
+		auto op = std::find(parsed.begin(), parsed.end(), "^");
+		string firstStr = *(op - 1);
+		string secondStr = *(op + 1);
 
-	return ret;
+		// Convert values to doubles from strings.
+		istringstream stream(firstStr);
+		double first;
+		stream >> first;
+
+		istringstream stream2(secondStr);
+		double second;
+		stream2 >> second;
+
+		if (!stream || !stream2) // Make sure both are converted successfully
+			throw;
+		
+		// Put the result in the vector and remove the operands.
+		*(op - 1) = std::to_string(pow(first, second));
+		parsed.erase(op, op + 2);
+	}
+
+	// Multiplication
+	while (std::find(parsed.begin(), parsed.end(), "*") != parsed.end()) {
+		auto op = std::find(parsed.begin(), parsed.end(), "*");
+		string firstStr = *(op - 1);
+		string secondStr = *(op + 1);
+
+		// Convert values to doubles from strings.
+		istringstream stream(firstStr);
+		double first;
+		stream >> first;
+
+		istringstream stream2(secondStr);
+		double second;
+		stream2 >> second;
+
+		if (!stream || !stream2) // Make sure both are converted successfully
+			throw;
+
+		// Put the result in the vector and remove the operands.
+		*(op - 1) = std::to_string(first * second);
+		parsed.erase(op, op + 2);
+	}
+
+	// Division
+	while (std::find(parsed.begin(), parsed.end(), "/") != parsed.end()) {
+		auto op = std::find(parsed.begin(), parsed.end(), "/");
+		string firstStr = *(op - 1);
+		string secondStr = *(op + 1);
+
+		// Convert values to doubles from strings.
+		istringstream stream(firstStr);
+		double first;
+		stream >> first;
+
+		istringstream stream2(secondStr);
+		double second;
+		stream2 >> second;
+
+		if (!stream || !stream2) // Make sure both are converted successfully
+			throw;
+
+		// Put the result in the vector and remove the operands.
+		*(op - 1) = std::to_string(first / second);
+		parsed.erase(op, op + 2);
+	}
+
+	// Addition
+	while (std::find(parsed.begin(), parsed.end(), "+") != parsed.end()) {
+		auto op = std::find(parsed.begin(), parsed.end(), "+");
+		string firstStr = *(op - 1);
+		string secondStr = *(op + 1);
+
+		// Convert values to doubles from strings.
+		istringstream stream(firstStr);
+		double first;
+		stream >> first;
+
+		istringstream stream2(secondStr);
+		double second;
+		stream2 >> second;
+
+		if (!stream || !stream2) // Make sure both are converted successfully
+			throw;
+
+	// Put the result in the vector and remove the operands.
+		*(op - 1) = std::to_string(first + second);
+		parsed.erase(op, op + 2);
+	}
+
+	// Subtraction
+	while (std::find(parsed.begin(), parsed.end(), "-") != parsed.end()) {
+		auto op = std::find(parsed.begin(), parsed.end(), "-");
+		string firstStr = *(op - 1);
+		string secondStr = *(op + 1);
+
+		// Convert values to doubles from strings.
+		istringstream stream(firstStr);
+		double first;
+		stream >> first;
+
+		istringstream stream2(secondStr);
+		double second;
+		stream2 >> second;
+
+		if (!stream || !stream2) // Make sure both are converted successfully
+			throw;
+
+		// Put the result in the vector and remove the operands.
+		*(op - 1) = std::to_string(first - second);
+		parsed.erase(op, op + 2);
+	}
+
+	// If we have less than or more than one value in the array
+	// at this point, something's not right - probably a letter.
+	if (parsed.size() != 1)
+		throw;
+
+	istringstream stream(parsed[0]);
+	double res;
+	stream >> res;
+	return res;
+}
+
+// Parse string into a function vector and evaluate it.
+string doMath(const string& str) {
+	vector<string> function;
+	bool wasNumber = false;
+	for (std::size_t i = 0; i < str.size(); i++) {
+		istringstream stream(string(1, str[i]));
+		int num;
+		stream >> num;
+		if (stream && wasNumber) {
+			function[function.size() - 1] += string(1, str[i]);
+		} else if (stream) {
+			function.push_back(string(1, str[i]));
+			wasNumber = true;
+		} else if (str[i] == '.') {
+			function[function.size() - 1] += string(1, str[i]);
+		} else {
+			function.push_back(string(1, str[i]));
+			wasNumber = false;
+		}
+	}
+
+	return std::to_string(evalFunction(function));
 }
 
 // See mathFunctions.hpp

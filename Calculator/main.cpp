@@ -193,4 +193,5 @@ int main()
 {
 	string str = "50+6/(3-1)+2*(8+4-7)";
 	string test = doMath(str);
+	cout << str << " = " << test << endl;
 }

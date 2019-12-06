@@ -15,10 +15,6 @@ using std::vector;
 using std::string;
 using std::to_string;
 
-#include <iostream>
-using std::cout;
-using std::endl;
-
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Output.H>
@@ -185,13 +181,3 @@ int main()
 	mainWindow->show();
 	return Fl::run();
 }
-
-// test
-/*
-int main()
-{
-	string str = "50+6/(3-1)+3*(8+4-7)";
-	string test = doMath(str);
-	cout << str << " = " << test << endl;
-}
-*/

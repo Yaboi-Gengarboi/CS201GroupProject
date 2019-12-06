@@ -102,6 +102,10 @@ void delCallback(Fl_Widget* w)
 //
 void enterCallback(Fl_Widget* w)
 {
+	if (model.input.size() == 0) {
+		view.outputField->value("0");
+		return;
+	}
 	model.output = doMath(model.input);
 	view.outputField->value(model.output.c_str());
 }
